@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="sign_up_style.css">
+    <title>로그인</title>
+</head>
+<style>
+body {
+  background-color: #fcde53;
+}
+</style>
+
+<body>
+    <div class="card main-box" style="width: 90%; margin:5%;">
+        <div class="card-body">
+            <form id="inputForm" name="inputForm" method="post" action="http://socrip3.kaist.ac.kr:5480/api/users/login/" target="_self">
+                <div>
+                    <h3>로그인</h3>
+                    <hr>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" id="email" name="email" required>
+
+                    <label for="password"><b>비밀번호</b></label>
+                    <input type="password" placeholder="Enter Password" id="password" name="password" required>
+
+                    <div class="clearfix">
+                        <input type="submit" class="btn btn- signupbtn btn-light" id="submit" name="submit"></input>
+                        <button onclick="location.href='sign_up.html'" class="btn btn-secondary btn-confirm btn-light">회원가입</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="log_in.js"></script>
+</body>
+
+</html>

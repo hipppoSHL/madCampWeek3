@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="sign_up_style.css">
+    <title>회원가입</title>
+</head>
+<style>
+body {
+  background-color: #fcde53;
+}
+</style>
+<body>
+    <div class="card main-box" style="width: 90%; margin:5%">
+        <div class="card-body">
+            <form id="inputForm" action="">
+                <div>
+                    <h2>회원가입</h2>
+                    <p>계정 생성을 위해 아래 내용을 기입해 주세요.</p>
+                    <hr>
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" placeholder="Enter Email" name="email" required>
+
+                    <label for="name"><b>이름</b></label>
+                    <input type="text" placeholder="Enter Name" name="name" required>
+
+                    <label for="gender"><b>성별</b></label>
+                    <select name="gender" required>
+                        <option value="female">여성</option>
+                        <option value="male">남성</option>
+                    </select>
+
+                    <label for="password"><b>비밀번호</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+
+                    <label for="passwd-repeat"><b>비밀번호 다시 입력</b></label>
+                    <input type="password" placeholder="Repeat Password" name="passwd-repeat" required>
+
+                    <label for="height"><b>신장</b></label>
+                    <input type="text" placeholder="Enter Height" name="height" required>
+
+                    <label for="weight"><b>체중</b></label>
+                    <input type="text" placeholder="Enter Weight" name="weight" required>
+
+                    <label for="target_weight"><b>목표체중</b></label>
+                    <input type="text" placeholder="Enter Target Weight" name="target_weight" required>
+
+                    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                    <div class="clearfix">
+                        <button type="button" id="submit" class="btn btn-primary signupbtn btn-confirm btn-light">가입</button>
+                        <button type="button" onclick="window.location.href='index.html'" class="btn btn-secondary cancelbtn btn-confirm">취소</button>
+                    </div>
+                </div>
+        </div>
+        </form>
+        <div>
+
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+                crossorigin="anonymous"></script>
+
+            <script type="text/javascript" src="sign_up.js"></script>
+</body>
+
+</html>

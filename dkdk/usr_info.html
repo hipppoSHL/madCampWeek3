@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="home.css">
+    <title>유저 정보</title>
+</head>
+
+<body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">오늘의 체중 입력</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">체중 입력</span>
+                        </div>
+                        <!-- <form id="add_food_form" name="add_food_form" method="post" action="http://socrip3.kaist.ac.kr:5480/api/diets/" style="padding: 10px; align-content: center; text-align: right"> -->
+                        <form id="weight_form" method="PUT">
+                            <input id="weight" name="weight" type="text" class="form-control" placeholder="kg 단위로 입력해 주세요."
+                                aria-label="Username" aria-describedby="addon-wrapping">
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                    <button type="button" id="change_weight" class="btn btn-primary">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <i class="fas fa-bars menu_icon"></i>
+    <div>
+        <!-- profile icon -->
+        <div class='hello'>
+            <h5 align="center">유저 정보</h5>
+            <h6 align="center" id="user_name"></h6>
+        </div>
+
+        <!-- first card, 사용자 체중 그래프 -->
+        <div class="card main-box" style="width: 90%; margin:5%;">
+            <div class="card-body" style="width:100%;">
+                체중 변화
+                <hr>
+                <div style="font-size: 14px;">
+                    목표 체중 :&nbsp;<span id="target_weight"></span><br>
+                    현재 체중 :&nbsp;<span id="weight_now"></span><br>
+                    목표 체중까지 <span id="weightcomment"></span>kg 남았군요!<br></div>
+                <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary btn-block"
+                    style="margin-top: 10px">오늘의 체중 입력</button>
+            </div>
+        </div>
+
+        <div class="card main-box" style="width: 90%; margin:5%;">
+            <div class="card-body" id="image_weird" style="width:100%;" align="center">
+
+            </div>
+        </div>
+
+        <div class="card main-box" style="width: 90%; margin:5%;">
+            <div class="card-body" style="width:100%;">
+                <!-- 목표 체중 :&nbsp;<span id="target_weight"></span><br>
+                현재 체중 :&nbsp;<span id="weight"></span><br>
+                목표 체중까지 <span id="weightcomment"></span>kg 남았군요!<br> -->
+                <span id="bmi"></span><br>
+                <div style="font-size: 14px; margin-top: 5px">
+                    18.5 이하면 저체중, 18.5~23은 정상, 23~25는 과체중, 25~30은 비만, 30이상은 고도비만 입니다!
+                </div>
+            </div>
+        </div>
+
+        <div class="card main-box" style="width: 90%; margin:5%;;">
+            <div class="card-body" style="width:100%;">
+                체중 변화 차트
+                <hr>
+                <canvas id="myChart" width="100%" height="80px"></canvas>
+            </div>
+        </div>
+
+        <div class="card main-box" style="width: 90%; margin:5%; margin-bottom: 20%;">
+            <div class="card-body" style="width:100%;">
+                    <button type="button" class="btn btn-secondary btn-block"
+                    style="margin-top: 10px" onclick="window.location.href='../index.html'">로그아웃</button>
+            </div>
+        </div>
+
+        <!-- 툴바 -->
+        <div class="navbar">
+            <div onclick="goto_mealplan();"><i class="fas fa-utensils" style="color:#fff"></i></div>
+            <div onclick="goto_home();"><i class="fas fa-home" style="color:#fff"></i></div>
+            <div onclick="goto_farm()"><i class="fas fa-book" style="color:#fff"></i></div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+        <script type="text/javascript" src="usr_info.js"></script>
+
+    </div>
+</body>
+
+</html>

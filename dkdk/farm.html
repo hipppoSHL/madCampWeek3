@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
+    <link rel="stylesheet" href="home.css">
+    <title>미션!</title>
+</head>
+
+<body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" align="center">
+                    정말로 완료하셨나요?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">아닙니다</button>
+                    <button id="mission_complete" data-toggle="modal" data-target="#confetti_modal" type="button" class="btn btn-primary">맞습니다</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Congrats Modal -->
+    <div class="modal fade" id="confetti_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="height: 340px">
+                    <h3 align="center">돼지를 획득했습니다!!!</h3>
+                    <div id="congrats">
+                        <!-- <img width="100%" src="돼지3.png" alt=""> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <i class="fas fa-user profile" onclick="goto_profile();"></i>
+    <div>
+        <!-- profile icon -->
+        <div class='hello'>
+            <h5 align="center">미션!</h5>
+        </div>
+
+        <!-- first card, 오늘의 미션! -->
+        <div class="card main-box" style="width: 90%; margin:5%;">
+            <div class="card-body" style="width:100%;">
+                오늘의 미션
+                <hr>
+                <div id="today_mission" style='font-size: 14px'>
+                </div><br>
+                <div id="btn_div">
+                    <button data-toggle="modal" data-target="#exampleModalCenter" type="button" id="complete_btn" class="btn btn-primary btn-block">완료하셨나요?</button></div>
+            </div>
+        </div>
+
+        <!-- 농장 -->
+        <div class="card main-box" style="width: 90%; margin:5%; margin-bottom: 20%;">
+            <div class="card-body" id="card_window" style="width:100%;">
+                <div class="row">
+                    <div class="column col1">
+                        <!-- <img src="돼지1.png" height="90px"> -->
+                    </div>
+                    <div class="column col2">
+                        <!-- <img src="돼지2.png" height="90px"> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column col3">
+                        <!-- <img src="돼지3.png" height="90px"> -->
+                    </div>
+                    <div class="column col4">
+                        <!-- <img src="돼지4.png" height="90px"> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column col5">
+                        <!-- <img src="돼지5.png" height="90px"> -->
+                    </div>
+                    <div class="column col6">
+                        <!-- <img src="돼지6.png" height="90px"> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column col7">
+                        <!-- <img src="돼지7.png" height="90px"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 툴바 -->
+        <div class="navbar">
+            <div onclick="goto_mealplan();"><i class="fas fa-utensils" style="color:#fff"></i></div>
+            <div onclick="goto_home();"><i class="fas fa-home" style="color:#fff"></i></div>
+            <div><i class="fas fa-book" style="color:#fff"></i></div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+        <script src="farm.js" type="text/javascript"></script>
+    </div>
+</body>
+
+</html>

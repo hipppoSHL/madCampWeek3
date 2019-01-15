@@ -1,0 +1,182 @@
+html,
+body {
+    height: 100%;
+}
+
+html {
+    /* display: table; */
+    margin: auto;
+}
+
+body {
+    /* display: table-cell; */
+    /* vertical-align: middle; */
+    background-color: #fcfcfc;
+
+}
+
+.hello {
+    margin: 50px 0px 30px 0px;
+}
+
+/* navigation bar */
+.navbar {
+    overflow: hidden;
+    background-color: #ffc20c;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 8%;
+}
+
+/* Links inside the navbar */
+.navbar div {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}
+
+.profile {
+    margin: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 25px;
+    color: #4c4c4c;
+}
+
+
+
+a {
+    color: #000;
+}
+
+.menu_icon {
+    margin: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 25px;
+    color: #4c4c4c;
+}
+
+/* 식단관리 부분 내용 */
+/* 여자 남자 권장칼로리 내용 적어주는 */
+#calorie_content {
+    width: 100%;
+    /* padding: 20px; */
+    padding: 10px 25px 0px 25px;
+    line-height: 1.5em;
+}
+
+/* 식단 관리에서 동그라미 아이콘 div */
+.circle {
+    border: 1px solid rgb(171, 221, 33);
+    color: #fff;
+    float: left;
+    width: 58px;
+    height: 58px;
+    margin: 6px;
+    border-radius: 50%;
+    background-color: rgb(171, 221, 33);
+    text-align: center;
+    vertical-align: middle;
+    /* line-height: 58px; */
+}
+
+/* 아침, 점심, 저녁, 간식, 몇칼로리 먹었는지 */
+#calorie_message {
+    margin-bottom: 20px;
+}
+
+/* 아이콘 */
+.timeicon {
+    color: #fff;
+    font-size: 22px;
+    vertical-align: middle;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* 식단관리에있는 div... */
+.circle_item {
+    vertical-align: middle;
+}
+
+/* bootstrap btn-primary 버튼 색 바꾸기? */
+.btn {
+    border: 0 none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.btn:active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background-color: rgb(171, 221, 33);
+    border-color: rgb(171, 221, 33);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:focus {
+    background-color: rgb(148, 190, 30);
+    border-color: rgb(148, 190, 30);
+    outline: 0 none;
+    box-shadow: none;
+}
+
+/* 식단관리 팝업창 */
+#search {
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+    padding: 6px;
+    border-radius: 1em;
+}
+
+input[type=text].searchwindow {
+    width: 87%;
+    height: 100%;
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid rgb(241, 241, 241);
+    background-color: rgb(241, 241, 241);
+}
+
+/* 농장 */
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    /* width: 25%; */
+    padding: 10px;
+  }
+  
+  /* Style the images inside the grid */
+  .column img {
+    opacity: 0.8; 
+    cursor: pointer; 
+  }
+  
+  .column img:hover {
+    opacity: 1;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  

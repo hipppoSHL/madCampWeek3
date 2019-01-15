@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="home.css">
+    <title>식단 관리</title>
+</head>
+
+<body>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div id="inner_modal" class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_title">아침 섭취량 추가</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- 검색창 -->
+                    <div id="search"><input type="text" class="searchwindow"id="searchkey" name="searchkey" placeholder="Search"><i id="searchBtn"
+                            class="fas fa-search"></i></div>
+                    <div id="search_item" style="margin: 7px; font-size: 15px; height: 35px;"></div>
+                </div>
+                <div class="card main-box" style="width: 90%; margin:5%; margin-top: 0px;">
+                    <div class="card-body" id="valuecheck" style="width:100%;">
+                        <span align="center" margin="20px" style="font-size: 15px">찾으시는 음식이 없나요?<br>직접 추가해 주세요! :)</span><br>
+                        <hr>
+                        <form id="add_food_form" name="add_food_form" method="post" action="http://socrip3.kaist.ac.kr:5480/api/diets/" style="padding: 10px; align-content: center; text-align: right">
+                            <div style="margin-bottom:6px" class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="addon-wrapping">음식</span>
+                                </div>
+                                <input id="food" name="food" type="text" class="form-control" placeholder="음식 입력" aria-label="Username" aria-describedby="addon-wrapping">
+                              </div>
+                              <div style="margin-bottom:6px" class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="addon-wrapping">kcal</span>
+                                </div>
+                                <input id="kcal" name="kcal" type="text" class="form-control" placeholder="칼로리 입력" aria-label="Username" aria-describedby="addon-wrapping">
+                              </div>
+                              <input type="submit" id="add_item" class="btn btn-info"></input>
+                        </form>
+                    </div>
+                </div>
+                <div id="selected_food" class="modal-body">
+                </div>
+                <div id="total_kcal" align="center">총 0kcal</div><br>
+                <div class="modal-footer">
+                    <button type="button" id="modal_close" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                    <button type="button" id="modal_add" class="btn btn-primary">추가</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <i class="fas fa-user profile" onclick="goto_profile();"></i>
+    <div>
+        <!-- profile icon -->
+        <div class='hello'>
+            <h5 align="center">식단 관리</h5>
+        </div>
+        <div>
+            <h6 align="center" id="calorie_content"></h6>
+        </div>
+
+        <!-- first card, 오늘 섭취 칼로리 -->
+        <div class="card main-box" style="width: 90%; margin:5%;">
+            <div class="card-body" style="width:100%;">
+                오늘 섭취한 칼로리!
+                <hr>
+                <div style='font-size: 12px'>
+                    <div class="circle" id="breakfast_act" data-toggle="modal" data-target="#exampleModalCenter">
+                        <div align="center"><i class="fas fa-cloud-sun timeicon"></i></div>
+                        <div class="circle_item" id="breakfast"></div>
+                    </div>
+                    <div class="circle" id="lunch_act" data-toggle="modal" data-target="#exampleModalCenter">
+                        <div align="center"><i class="fas fa-sun timeicon"></i></div>
+                        <div class="circle_item" id="lunch"></div>
+                    </div>
+                    <div class="circle" id="dinner_act" data-toggle="modal" data-target="#exampleModalCenter">
+                        <div align="center"><i class="fas fa-moon timeicon"></i></div>
+                        <div class="circle_item" id="dinner"></div>
+                    </div>
+                    <div class="circle" id="snack_act" data-toggle="modal" data-target="#exampleModalCenter">
+                        <div align="center"><i class="fas fa-cookie-bite timeicon"></i></div>
+                        <div class="circle_item" id="snack"></div>
+                    </div>
+                </div>
+            </div>
+            <h6 id="calorie_message" align="center"></h6>
+        </div>
+
+        <!-- 칼로리 차트 -->
+        <div class="card main-box" style="width: 90%; margin:5%; margin-bottom: 20%">
+            <div class="card-body" id="valuecheck" style="width:100%;">
+                칼로리 차트
+                <hr>
+                <canvas id="myChart" width="100%" height="80px"></canvas>
+            </div>
+        </div>
+
+        <!-- 툴바 -->
+        <div class="navbar">
+            <div><i class="fas fa-utensils" style="color:#fff"></i></div>
+            <div onclick="goto_home();"><i class="fas fa-home" style="color:#fff"></i></div>
+            <div onclick="goto_farm();"><i class="fas fa-book" style="color:#fff"></i></div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+        <script src="mealplan.js" type="text/javascript"></script>
+    </div>
+</body>
+
+</html>

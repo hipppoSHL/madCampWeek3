@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="testtest"></div>
+    <button width="200px" height="300px" onclick="getget();">버튼</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function getget() {
+            var str = "라면";
+            var escapestr = encodeURI(str);
+            var str2 = "라면땅";
+            var escapestr2 = encodeURI(str2);
+            alert(escapestr + " " + escapestr2);
+            alert(escapestr);
+            $.getJSON("http://socrip3.kaist.ac.kr:5480/api/diets/food/" + escapestr, function (data) {
+                console.log(data);
+                $.each(data, function (key, val) {
+                    $("#testtest").append(val.food);
+                    $("#testtest").append(val.type);
+                    $("#testtest").append(val.kcal);
+                })
+            })
+        }
+    </script>
+</body>
+
+</html>
